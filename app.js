@@ -13,34 +13,7 @@
 //                 }
 //         }
 //        getSquareOrCube(6,"square ")
-                //Q3 
-//               let  num1 = +prompt("Enter number 1 ")
-//                 let num2 = +prompt("Enter number 2 ")
-// function checkNum(num1 , num2){
-//                 if (num1 > num2){
-//               alert(num1 +" is greater")
-//                 return  ;
-//                 }
-//                 else if(num1 < num2){
-//               alert(num2 +" is greater")
-//                 return  ;
-
-//                 }
-//         }
-//         checkNum(num1,num2);
-        //      Q4
-  let sentence = prompt("Enter a sentence ").toLowerCase()              ;
-let count = 0 ;
-function checkVowels(){
-var arr = ["a", "e", "i", "o", "u"]
-for(let i=0 ; i<=sentence.length ; i++){
-    let letter = sentence[i];
-    if(letter === "a" || letter ==="e" || letter ==="i" || letter === "o" || letter === "u"){
-        count++;
-    }
-}
-}
-checkVowels(sentence);
+   
 
 
        
@@ -214,3 +187,69 @@ checkVowels(sentence);
 
 
 /////////  Assignment JS 07 ( ENDS ) ////////////////////
+/////////  Quesytion related function  ( STARTS ) ////////////////////
+
+//                    Question 3
+
+//               let  num1 = +prompt("Enter number 1 ")
+//                 let num2 = +prompt("Enter number 2 ")
+// function checkNum(num1 , num2){
+//                 if (num1 > num2){
+//               alert(num1 +" is greater")
+//                 return  ;
+//                 }
+//                 else if(num1 < num2){
+//               alert(num2 +" is greater")
+//                 return  ;
+
+//                 }
+//         }
+//         checkNum(num1,num2);
+        //      Question 4
+
+// let sentence = prompt("Enter a sentence ").toLowerCase()              ;
+// let count = 0 ;
+// function checkVowels(){
+// var arr = ["a", "e", "i", "o", "u"]
+// for(let i=0 ; i<=sentence.length ; i++){
+//     let letter = sentence[i];
+//     if(letter === "a" || letter ==="e" || letter ==="i" || letter === "o" || letter === "u"){
+//         count++;
+//     }
+// }
+// }
+// checkVowels(sentence)
+//              Question 2
+
+// let word = prompt("Enter a word ")
+//  let reversed = word.split('').reverse()//.join();
+// alert(reversed);
+
+//              Question 1
+// let arr = [1,2,3,45,5];
+// let sum = 0 ;
+// for (i=0 ; i<arr.length ; i++){
+//         sum += arr[i];
+// }
+// console.log(sum);
+//              Question 5 (This is not correct )
+// let arr = [1,2,3,45,5];
+// let sum = 0 ;
+// let duplicate = arr ;
+// for (i=0 ; i<arr.length ; i++){
+//         if(duplicate == arr[i]){
+//                 duplicate -= arr[i];
+//         }
+        
+// }
+// console.log(duplicate);
+//              Question 6
+
+// let word = prompt("Enter a word ").toLowerCase();
+// word = word.slice(0,1).toUpperCase() + word.slice(1);
+// alert(word);
+
+
+
+
+/////////  Quesytion related function  ( ENDS ) ////////////////////
