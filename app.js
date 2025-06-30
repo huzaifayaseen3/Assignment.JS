@@ -1,3 +1,17 @@
+        //        29/6/2025
+//         count = 0;
+// function CountNumber(){
+//   for(let i=0 ; i<5 ; i++){
+//         count++
+//         console.log(i, count);
+        
+//   }    
+// }
+// CountNumber(); 
+// CountNumber(); 
+
+        
+        
         // function starts here 
 //         function getSquareOrCube(num , operation){
 //                 if (operation == "square "){
@@ -110,6 +124,76 @@
 //     alert("Not available");
 // }
 /////////  Assignment JS 06 (  STARTS  )////////////////////
+//              Q1
+//  let num = +prompt("Enter a number:");
+//   if (num > 0) {
+//   console.log("Round off value ");
+  
+//     num = Math.round(num);
+//     console.log("Rounded:", num);
+
+//    console.log("Ceiling  value ");
+
+//     num = Math.ceil(num);
+//     console.log("Ceiling:", num);
+
+//      console.log("Floor  value ");
+
+//      num = Math.floor(num);
+//     console.log("Floor:", num);
+// }
+// console.log(num);
+//              Question 2
+
+// let num = +prompt("Enter a number:");
+//   if (num < 0) {
+//   console.log("Round off value ");
+  
+//     num = Math.round(num);
+//     console.log("Rounded:", num);
+//   }
+//   else{
+//         alert("Value should be less than 0" )
+// }
+//              Question 3 
+//              Question 4 
+
+//  let  num = Math.random();
+// console.log("Random Dice :", Math.round((num * 6 + 1 )));
+
+//              Question 5
+
+//  let toss = Math.floor(Math.random() * 2); // 0 or 1
+// if (toss === 0) {
+//     console.log("Toss: Heads");
+// } else {
+//     console.log("Toss: Tails");
+// }
+
+//              Question  6 
+
+//  let  num = Math.floor(Math.random() * 100 ) + 1;
+//  console.log("rand0m number : " , num);
+
+ //              Question  7
+ 
+//  let weight = prompt("Enter your weight :")
+// weight = Math.round(+weight);
+// alert(weight+"kg")
+
+//              Question  8
+
+// let  num = Math.floor(Math.random() * 10 ) + 1;
+//  console.log("rand0m number : " , num);
+//  let guessNo = prompt(" Guess the Ramdom Number : ")
+//  if(guessNo == num){
+//         alert("You guess correct ");
+//  }else{
+//         alert("Better luck next time ");
+//  }
+
+
+
 /////////  Assignment JS 06( ENDS ) ////////////////////
 /////////  Assignment JS 07 ( STARTS ) ////////////////////
 //              Q1
@@ -187,7 +271,7 @@
 
 
 /////////  Assignment JS 07 ( ENDS ) ////////////////////
-/////////  Quesytion related function  ( STARTS ) ////////////////////
+/////////  Question related function  ( STARTS ) ////////////////////
 
 //                    Question 3
 
@@ -252,4 +336,5 @@
 
 
 
-/////////  Quesytion related function  ( ENDS ) ////////////////////
+/////////  Question related function  ( ENDS ) ////////////////////
+
