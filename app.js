@@ -4,7 +4,7 @@
 // let age = calAge(2004);
 // console.log(age);
 
-//         count = 0;
+//         count = 0;;
 // function CountNumber(){
 //   for(let i=0 ; i<5 ; i++){
 //         count++
@@ -422,29 +422,79 @@
 // const x = 23;
 // console.log();
 
-/////////////////////////// Paword Generator ///////////////////////////////
+/////////////////////////// Password Generator ///////////////////////////////
+// let passwordHolder = document.getElementById("password");
+// let passLength = 12;
 
-let passwordHolder = document.getElementById("password");
-let passlenght = 12;
+// let upperCase = "ASDFGHJKLQWERTYUIOPZXCVBNM";
+// let lowerCase = "asdfghjklqwertyuiop";
+// let number = "1234567890";
+// let symbol = "~!@#$%^&*()_-{}|:<>?";
 
-let upperCase = "ASDFGHJKLQWERTYUIOPZXCVBNM";
-let lowerCase = "asdfghjklqwertyuiop";
-let number = "1234567890";
-let symbol = "~!@#$%^&*()_-{}|:<>?";
+// let allChar = upperCase + lowerCase + number + symbol;
 
-let allChar = upperCase + lowerCase + number + symbol;
+// function generatePassword() {
+//   let password = "";
+//   password += upperCase[Math.floor(Math.random() * upperCase.length)];
+//   password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+//   password += number[Math.floor(Math.random() * number.length)];
+//   password += symbol[Math.floor(Math.random() * symbol.length)];
 
-function generatePassword() {
-  let password = "";
+//   while (password.length < passLength) {
+//     password += allChar[Math.floor(Math.random() * allChar.length)];
+//   }
 
-  password += upperCase[Math.floor(Math.random() * upperCase.length)];
-  password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-  password += number[Math.floor(Math.random() * number.length)];
-  password += symbol[Math.floor(Math.random() * symbol.length)];
+//   passwordHolder.value = password;
+// }
+/////////////////////////// To do list  ///////////////////////////////
 
-  while (password.length < passlenght) {
-    password += allChar[Math.floor(Math.random() * allChar.length)];
+let list = document.getElementById("list");
+
+function AddTodo() {
+  let todo = document.getElementById("todo");
+
+  if (todo.value.trim() === "") return;
+
+  list.innerHTML += `<li> 
+    <input type="text" value="${todo.value}" disabled />
+    <button class="delete-btn" onclick="deleteTodo(event)">Delete</button>
+    <button class="edit-btn" onclick="editTodo(event)">Edit</button>
+  </li>`;
+
+  todo.value = "";
+}
+
+function addTodoEnter(event) {
+  if (event.key === "Enter") {
+    AddTodo();
   }
+}
 
-  passwordHolder.value = password;
+function deleteTodo(event) {
+  event.target.parentNode.remove();
+}
+
+function editTodo(event) {
+  let input = event.target.parentNode.querySelector("input");
+  input.disabled = false;
+  input.focus();
+
+  event.target.innerHTML = "Update";
+  event.target.classList.remove("edit-btn");
+  event.target.classList.add("update-btn");
+  event.target.setAttribute("onclick", "updateTodo(event)");
+}
+
+function updateTodo(event) {
+  let input = event.target.parentNode.querySelector("input");
+  input.disabled = true;
+
+  event.target.innerHTML = "Edit";
+  event.target.classList.remove("update-btn");
+  event.target.classList.add("edit-btn");
+  event.target.setAttribute("onclick", "editTodo(event)");
+}
+
+function deleteAll() {
+  list.innerHTML = "";
 }
