@@ -448,53 +448,119 @@
 // }
 /////////////////////////// To do list  ///////////////////////////////
 
-let list = document.getElementById("list");
+// let list = document.getElementById("list");
 
-function AddTodo() {
-  let todo = document.getElementById("todo");
+// function AddTodo() {
+//   let todo = document.getElementById("todo");
 
-  if (todo.value.trim() === "") return;
+//   if (todo.value.trim() === "") return;
 
-  list.innerHTML += `<li> 
-    <input type="text" value="${todo.value}" disabled />
-    <button class="delete-btn" onclick="deleteTodo(event)">Delete</button>
-    <button class="edit-btn" onclick="editTodo(event)">Edit</button>
-  </li>`;
+//   list.innerHTML += `<li>
+//     <input type="text" value="${todo.value}" disabled />
+//     <button class="delete-btn" onclick="deleteTodo(event)">Delete</button>
+//     <button class="edit-btn" onclick="editTodo(event)">Edit</button>
+//   </li>`;
 
-  todo.value = "";
-}
+//   todo.value = "";
+// }
 
-function addTodoEnter(event) {
-  if (event.key === "Enter") {
-    AddTodo();
+// function addTodoEnter(event) {
+//   if (event.key === "Enter") {
+//     AddTodo();
+//   }
+// }
+
+// function deleteTodo(event) {
+//   event.target.parentNode.remove();
+// }
+
+// function editTodo(event) {
+//   let input = event.target.parentNode.querySelector("input");
+//   input.disabled = false;
+//   input.focus();
+
+//   event.target.innerHTML = "Update";
+//   event.target.classList.remove("edit-btn");
+//   event.target.classList.add("update-btn");
+//   event.target.setAttribute("onclick", "updateTodo(event)");
+// }
+
+// function updateTodo(event) {
+//   let input = event.target.parentNode.querySelector("input");
+//   input.disabled = true;
+
+//   event.target.innerHTML = "Edit";
+//   event.target.classList.remove("update-btn");
+//   event.target.classList.add("edit-btn");
+//   event.target.setAttribute("onclick", "editTodo(event)");
+// }
+
+// function deleteAll() {
+//   list.innerHTML = "";
+// }
+/////////////////////////////////// POSTING APP  /////////////////////
+function submitPost() {
+  console.log("submitPost function called");
+
+  const input = document.getElementById("postInput");
+  const container = document.getElementById("postsContainer");
+
+  if (!input.value.trim()) {
+    alert("Please write something before posting!");
+    return;
   }
+
+  const post = document.createElement("div");
+  post.className = "post";
+
+  post.innerHTML = `
+        <div class="post-content">${input.value}</div>
+        <div class="comment-section">
+          <input type="text" placeholder="Your name (optional)" class="comment-name" />
+          <input type="text" placeholder="Add a comment..." class="comment-input" />
+          <button class="comment-btn" onclick="addComment(this)">Comment</button>
+          <div class="comments-container"></div>
+        </div>
+      `;
+
+  container.appendChild(post);
+  input.value = "";
+
+  console.log("Post created successfully");
 }
 
-function deleteTodo(event) {
-  event.target.parentNode.remove();
+function addComment(button) {
+  const commentSection = button.parentElement;
+  const nameInput = commentSection.querySelector(".comment-name");
+  const commentInput = commentSection.querySelector(".comment-input");
+  const commentsContainer = commentSection.querySelector(".comments-container");
+
+  const commentText = commentInput.value.trim();
+
+  if (!commentText) {
+    alert("Please write a comment!");
+    return;
+  }
+
+  const name = nameInput.value.trim() || "Anonymous";
+
+  const comment = document.createElement("div");
+  comment.className = "comment";
+  comment.innerHTML = `<strong>${name}:</strong> ${commentText}`;
+
+  commentsContainer.appendChild(comment);
+
+  commentInput.value = "";
+  nameInput.value = "";
 }
 
-function editTodo(event) {
-  let input = event.target.parentNode.querySelector("input");
-  input.disabled = false;
-  input.focus();
+function deleteAllPosts() {
+  alert("Delete function called!"); // Test if function is even called
 
-  event.target.innerHTML = "Update";
-  event.target.classList.remove("edit-btn");
-  event.target.classList.add("update-btn");
-  event.target.setAttribute("onclick", "updateTodo(event)");
-}
+  const container = document.getElementById("postsContainer");
 
-function updateTodo(event) {
-  let input = event.target.parentNode.querySelector("input");
-  input.disabled = true;
+  // Just delete without any checks for now
+  container.innerHTML = "";
 
-  event.target.innerHTML = "Edit";
-  event.target.classList.remove("update-btn");
-  event.target.classList.add("edit-btn");
-  event.target.setAttribute("onclick", "editTodo(event)");
-}
-
-function deleteAll() {
-  list.innerHTML = "";
+  alert("Posts should be deleted now!");
 }

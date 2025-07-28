@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
   display: flex;
@@ -60,7 +60,7 @@ li input[type="text"] {
 }
 
 /* Generic Button Style */
-button {
+/* button {
   padding: 6px 10px;
   border: none;
   border-radius: 5px;
@@ -69,10 +69,10 @@ button {
   cursor: pointer;
   transition: 0.2s;
   margin-left: 5px;
-}
+} */
 
 /* Specific Button Colors */
-.add-btn {
+/* .add-btn {
   background: #007bff;
 }
 .add-btn:hover {
@@ -98,8 +98,8 @@ button {
 }
 .edit-btn:hover {
   background: darkorange;
-}
-/*
+} 
+
 @ -0,0 +1,49 @@
 body {
   font-family: Arial, sans-serif;
@@ -149,5 +149,146 @@ button {
 
 button:hover {
   background: #0056b3;
+} */
+/* Base Styling */
+/* Base Styling */
+/* Make sure the whole page content is centered */
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background-color: #e9eff5;
+  padding: 40px 20px;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
 }
-  */
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: #f0f4f8;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+textarea,
+input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 10px;
+  font-size: 15px;
+  border: 1px solid #ccd0d5;
+  border-radius: 10px;
+  transition: 0.2s ease;
+  background-color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+textarea:focus,
+input:focus {
+  border-color: #1877f2;
+  outline: none;
+  background-color: #f9f9ff;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  background-color: #1877f2;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #145dc2;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.post {
+  background-color: #cce0ff;
+  border: 1px solid #99bbff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  color: #0d1a7a;
+  font-weight: 600;
+}
+
+.comment-section {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.comment-section input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #b3f2b3;
+  background-color: #e2f9e2;
+  text-align: center;
+  font-weight: 500;
+  color: #1e661e;
+}
+
+.comment-section button {
+  margin-top: 10px;
+  background-color: #0fd326;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-section button:hover {
+  background-color: #0bb823;
+}
+
+.comments-container {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #d4f8d4;
+  border-radius: 8px;
+  color: #135213;
+  font-weight: 500;
+  box-shadow: inset 0 0 5px #a3d1a3;
+}
