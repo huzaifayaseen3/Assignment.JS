@@ -499,68 +499,68 @@
 //   list.innerHTML = "";
 // }
 /////////////////////////////////// POSTING APP  /////////////////////
-function submitPost() {
-  console.log("submitPost function called");
+// function submitPost() {
+//   console.log("submitPost function called");
 
-  const input = document.getElementById("postInput");
-  const container = document.getElementById("postsContainer");
+//   const input = document.getElementById("postInput");
+//   const container = document.getElementById("postsContainer");
 
-  if (!input.value.trim()) {
-    alert("Please write something before posting!");
-    return;
-  }
+//   if (!input.value.trim()) {
+//     alert("Please write something before posting!");
+//     return;
+//   }
 
-  const post = document.createElement("div");
-  post.className = "post";
+//   const post = document.createElement("div");
+//   post.className = "post";
 
-  post.innerHTML = `
-        <div class="post-content">${input.value}</div>
-        <div class="comment-section">
-          <input type="text" placeholder="Your name (optional)" class="comment-name" />
-          <input type="text" placeholder="Add a comment..." class="comment-input" />
-          <button class="comment-btn" onclick="addComment(this)">Comment</button>
-          <div class="comments-container"></div>
-        </div>
-      `;
+//   post.innerHTML = `
+//         <div class="post-content">${input.value}</div>
+//         <div class="comment-section">
+//           <input type="text" placeholder="Your name (optional)" class="comment-name" />
+//           <input type="text" placeholder="Add a comment..." class="comment-input" />
+//           <button class="comment-btn" onclick="addComment(this)">Comment</button>
+//           <div class="comments-container"></div>
+//         </div>
+//       `;
 
-  container.appendChild(post);
-  input.value = "";
+//   container.appendChild(post);
+//   input.value = "";
 
-  console.log("Post created successfully");
-}
+//   console.log("Post created successfully");
+// }
 
-function addComment(button) {
-  const commentSection = button.parentElement;
-  const nameInput = commentSection.querySelector(".comment-name");
-  const commentInput = commentSection.querySelector(".comment-input");
-  const commentsContainer = commentSection.querySelector(".comments-container");
+// function addComment(button) {
+//   const commentSection = button.parentElement;
+//   const nameInput = commentSection.querySelector(".comment-name");
+//   const commentInput = commentSection.querySelector(".comment-input");
+//   const commentsContainer = commentSection.querySelector(".comments-container");
 
-  const commentText = commentInput.value.trim();
+//   const commentText = commentInput.value.trim();
 
-  if (!commentText) {
-    alert("Please write a comment!");
-    return;
-  }
+//   if (!commentText) {
+//     alert("Please write a comment!");
+//     return;
+//   }
 
-  const name = nameInput.value.trim() || "Anonymous";
+//   const name = nameInput.value.trim() || "Anonymous";
 
-  const comment = document.createElement("div");
-  comment.className = "comment";
-  comment.innerHTML = `<strong>${name}:</strong> ${commentText}`;
+//   const comment = document.createElement("div");
+//   comment.className = "comment";
+//   comment.innerHTML = `<strong>${name}:</strong> ${commentText}`;
 
-  commentsContainer.appendChild(comment);
+//   commentsContainer.appendChild(comment);
 
-  commentInput.value = "";
-  nameInput.value = "";
-}
+//   commentInput.value = "";
+//   nameInput.value = "";
+// }
 
-function deleteAllPosts() {
-  alert("Delete function called!"); // Test if function is even called
+// function deleteAllPosts() {
+//   alert("Delete function called!"); // Test if function is even called
 
-  const container = document.getElementById("postsContainer");
+//   const container = document.getElementById("postsContainer");
 
-  // Just delete without any checks for now
-  container.innerHTML = "";
+//   // Just delete without any checks for now
+//   container.innerHTML = "";
 
-  alert("Posts should be deleted now!");
-}
+//   alert("Posts should be deleted now!");
+// }
