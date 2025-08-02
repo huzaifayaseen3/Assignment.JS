@@ -564,3 +564,76 @@
 
 //   alert("Posts should be deleted now!");
 // }
+//////////////////// Sign form ////////////////////
+function showSignUp() {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("signupForm").style.display = "flex";
+}
+
+// Show Login Form
+function showLogin() {
+  document.getElementById("signupForm").style.display = "none";
+  document.getElementById("loginForm").style.display = "flex";
+}
+
+// Login Form Validation
+function loginUser() {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  if (!email.trim()) {
+    alert("Please enter your email!");
+    return false;
+  }
+
+  if (!password.trim()) {
+    alert("Please enter your password!");
+    return false;
+  }
+
+  alert(`Login successful!\nEmail: ${email}`);
+  return false; // Prevent actual form submission for demo
+}
+
+// Sign Up Form Validation
+function signupUser() {
+  const fullName = document.getElementById("fullName").value;
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPassword").value;
+  const city = document.getElementById("cities").value;
+  const gender = document.querySelector('input[name="gender"]:checked');
+
+  // Check if all fields are filled
+  if (!fullName.trim()) {
+    alert("Please enter your full name!");
+    return false;
+  }
+
+  if (!email.trim()) {
+    alert("Please enter your email!");
+    return false;
+  }
+
+  if (!password.trim()) {
+    alert("Please enter your password!");
+    return false;
+  }
+
+  if (!city) {
+    alert("Please select a city!");
+    return false;
+  }
+
+  if (!gender) {
+    alert("Please select your gender!");
+    return false;
+  }
+
+  alert(
+    `Account created successfully!\nName: ${fullName}\nEmail: ${email}\nCity: ${city}\nGender: ${gender.value}`
+  );
+
+  // After successful signup, show login form
+  showLogin();
+  return false; // Prevent actual form submission for demo
+}
