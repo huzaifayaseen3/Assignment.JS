@@ -18,10 +18,10 @@
         <header>Login</header>
       </div>
 
-      <form onSubmit="return loginUser();">
+      <form onSubmit="return loginUser();" novalidate>
         <!-- Email Input -->
         <div class="input-box">
-          <input type="email" id="loginEmail" class="input-field" placeholder="Email" autocomplete="off">
+          <input type="text" id="loginEmail" class="input-field" placeholder="Email" autocomplete="off">
         </div>
 
         <!-- Password Input -->
@@ -47,7 +47,7 @@
         <header>Sign Up</header>
       </div>
 
-      <form onSubmit="return signupUser();">
+      <form onSubmit="return signupUser();" novalidate>
         <!-- Full Name Input -->
         <div class="input-box">
           <input type="text" id="fullName" class="input-field" placeholder="Full Name" autocomplete="off">
@@ -55,7 +55,7 @@
 
         <!-- Email Input -->
         <div class="input-box">
-          <input type="email" id="signupEmail" class="input-field" placeholder="Email" autocomplete="off">
+          <input type="text" id="signupEmail" class="input-field" placeholder="Email" autocomplete="off">
         </div>
 
         <!-- Password Input -->
@@ -65,7 +65,7 @@
 
         <!-- City Dropdown -->
         <div class="input-box">
-          <select id="cities" class="select-field" required>
+          <select id="cities" class="select-field">
             <option value="" selected="selected">SELECT A CITY</option>
             <option value="karachi">Karachi</option>
             <option value="lahore">Lahore</option>
@@ -87,11 +87,11 @@
           <label>Gender:</label>
           <div class="radio-options">
             <div class="radio-option">
-              <input type="radio" id="male" name="gender" value="male" required>
+              <input type="radio" id="male" name="gender" value="male">
               <label for="male">Male</label>
             </div>
             <div class="radio-option">
-              <input type="radio" id="female" name="gender" value="female" required>
+              <input type="radio" id="female" name="gender" value="female">
               <label for="female">Female</label>
             </div>
           </div>

@@ -565,6 +565,14 @@
 //   alert("Posts should be deleted now!");
 // }
 //////////////////// Sign form ////////////////////
+// Email validation regex
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+// Password validation regex (at least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character)
+const passwordRegex =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+// Show Sign Up Form
 function showSignUp() {
   document.getElementById("loginForm").style.display = "none";
   document.getElementById("signupForm").style.display = "flex";
@@ -574,6 +582,16 @@ function showSignUp() {
 function showLogin() {
   document.getElementById("signupForm").style.display = "none";
   document.getElementById("loginForm").style.display = "flex";
+}
+
+// Email validation function
+function validateEmail(email) {
+  return emailRegex.test(email);
+}
+
+// Password validation function
+function validatePassword(password) {
+  return passwordRegex.test(password);
 }
 
 // Login Form Validation
@@ -586,8 +604,22 @@ function loginUser() {
     return false;
   }
 
+  // Email validation
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address!");
+    return false;
+  }
+
   if (!password.trim()) {
     alert("Please enter your password!");
+    return false;
+  }
+
+  // Password validation
+  if (!validatePassword(password)) {
+    alert(
+      "Password must be at least 8 characters long and contain:\n- At least 1 uppercase letter\n- At least 1 lowercase letter\n- At least 1 number\n- At least 1 special character (@$!%*?&)"
+    );
     return false;
   }
 
@@ -614,8 +646,22 @@ function signupUser() {
     return false;
   }
 
+  // Email validation
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address!");
+    return false;
+  }
+
   if (!password.trim()) {
     alert("Please enter your password!");
+    return false;
+  }
+
+  // Password validation
+  if (!validatePassword(password)) {
+    alert(
+      "Password must be at least 8 characters long and contain:\n- At least 1 uppercase letter\n- At least 1 lowercase letter\n- At least 1 number\n- At least 1 special character (@$!%*?&)"
+    );
     return false;
   }
 
