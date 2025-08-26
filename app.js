@@ -565,121 +565,183 @@
 //   alert("Posts should be deleted now!");
 // }
 //////////////////// Sign form ////////////////////
-// Email validation regex
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+// // Email validation regex
+// const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-// Password validation regex (at least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character)
-const passwordRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+// // Password validation regex (at least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character)
+// const passwordRegex =
+//   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-// Show Sign Up Form
-function showSignUp() {
-  document.getElementById("loginForm").style.display = "none";
-  document.getElementById("signupForm").style.display = "flex";
-}
+// // Show Sign Up Form
+// function showSignUp() {
+//   document.getElementById("loginForm").style.display = "none";
+//   document.getElementById("signupForm").style.display = "flex";
+// }
 
-// Show Login Form
-function showLogin() {
-  document.getElementById("signupForm").style.display = "none";
-  document.getElementById("loginForm").style.display = "flex";
-}
+// // Show Login Form
+// function showLogin() {
+//   document.getElementById("signupForm").style.display = "none";
+//   document.getElementById("loginForm").style.display = "flex";
+// }
 
-// Email validation function
-function validateEmail(email) {
-  return emailRegex.test(email);
-}
+// // Email validation function
+// function validateEmail(email) {
+//   return emailRegex.test(email);
+// }
 
-// Password validation function
-function validatePassword(password) {
-  return passwordRegex.test(password);
-}
+// // Password validation function
+// function validatePassword(password) {
+//   return passwordRegex.test(password);
+// }
 
-// Login Form Validation
-function loginUser() {
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
+// // Login Form Validation
+// function loginUser() {
+//   const email = document.getElementById("loginEmail").value;
+//   const password = document.getElementById("loginPassword").value;
 
-  if (!email.trim()) {
-    alert("Please enter your email!");
-    return false;
-  }
+//   if (!email.trim()) {
+//     alert("Please enter your email!");
+//     return false;
+//   }
 
-  // Email validation
-  if (!validateEmail(email)) {
-    alert("Please enter a valid email address!");
-    return false;
-  }
+//   // Email validation
+//   if (!validateEmail(email)) {
+//     alert("Please enter a valid email address!");
+//     return false;
+//   }
 
-  if (!password.trim()) {
-    alert("Please enter your password!");
-    return false;
-  }
+//   if (!password.trim()) {
+//     alert("Please enter your password!");
+//     return false;
+//   }
 
-  // Password validation
-  if (!validatePassword(password)) {
-    alert(
-      "Password must be at least 8 characters long and contain:\n- At least 1 uppercase letter\n- At least 1 lowercase letter\n- At least 1 number\n- At least 1 special character (@$!%*?&)"
+//   // Password validation
+//   if (!validatePassword(password)) {
+//     alert(
+//       "Password must be at least 8 characters long and contain:\n- At least 1 uppercase letter\n- At least 1 lowercase letter\n- At least 1 number\n- At least 1 special character (@$!%*?&)"
+//     );
+//     return false;
+//   }
+
+//   alert(`Login successful!\nEmail: ${email}`);
+//   return false; // Prevent actual form submission for demo
+// }
+
+// // Sign Up Form Validation
+// function signupUser() {
+//   const fullName = document.getElementById("fullName").value;
+//   const email = document.getElementById("signupEmail").value;
+//   const password = document.getElementById("signupPassword").value;
+//   const city = document.getElementById("cities").value;
+//   const gender = document.querySelector('input[name="gender"]:checked');
+
+//   // Check if all fields are filled
+//   if (!fullName.trim()) {
+//     alert("Please enter your full name!");
+//     return false;
+//   }
+
+//   if (!email.trim()) {
+//     alert("Please enter your email!");
+//     return false;
+//   }
+
+//   // Email validation
+//   if (!validateEmail(email)) {
+//     alert("Please enter a valid email address!");
+//     return false;
+//   }
+
+//   if (!password.trim()) {
+//     alert("Please enter your password!");
+//     return false;
+//   }
+
+//   // Password validation
+//   if (!validatePassword(password)) {
+//     alert(
+//       "Password must be at least 8 characters long and contain:\n- At least 1 uppercase letter\n- At least 1 lowercase letter\n- At least 1 number\n- At least 1 special character (@$!%*?&)"
+//     );
+//     return false;
+//   }
+
+//   if (!city) {
+//     alert("Please select a city!");
+//     return false;
+//   }
+
+//   if (!gender) {
+//     alert("Please select your gender!");
+//     return false;
+//   }
+
+//   alert(
+//     `Account created successfully!\nName: ${fullName}\nEmail: ${email}\nCity: ${city}\nGender: ${gender.value}`
+//   );
+
+//   // After successful signup, show login form
+//   showLogin();
+//   return false; // Prevent actual form submission for demo
+// }
+//////////////////////////// Weather APP ///////////////
+
+const fetchWeather = async (city) => {
+  try {
+    const weatherApi = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4a4a359fa2bd230494f20f6999cb8150&units=metric`
     );
-    return false;
-  }
+    const response = await weatherApi.json();
 
-  alert(`Login successful!\nEmail: ${email}`);
-  return false; // Prevent actual form submission for demo
+    // if wrong city
+    if (response.cod !== 200) {
+      alert("City not found!");
+      return;
+    }
+
+    const {
+      main: { temp, feels_like, humidity, pressure },
+      weather,
+      wind: { speed },
+      name,
+    } = response;
+
+    const { description, main: weatherMain } = weather[0];
+
+    // ✅ Update UI
+    document.querySelector(".location").textContent = name;
+    document.querySelector(".temperature").textContent = `${temp}°C`;
+    document.querySelector(".description").textContent = description;
+
+    // ✅ Update details (your HTML has no IDs → so we add them)
+    document.getElementById("humidity").textContent = `${humidity}%`;
+    document.getElementById("wind").textContent = `${speed} km/h`;
+    document.getElementById("pressure").textContent = `${pressure} hPa`;
+    document.getElementById("feelslike").textContent = `${feels_like}°C`;
+
+    // ✅ Weather Icon
+    const iconElement = document.querySelector(".weather-icon");
+    if (weatherMain === "Clouds") {
+      iconElement.textContent = "☁️";
+    } else if (weatherMain === "Rain") {
+      iconElement.textContent = "🌧️";
+    } else if (weatherMain === "Clear") {
+      iconElement.textContent = "☀️";
+    } else {
+      iconElement.textContent = "🌍"; // fallback
+    }
+  } catch (error) {
+    console.error("Error fetching weather:", error);
+    alert("Something went wrong!");
+  }
+};
+
+// ✅ Search button
+function searchWeather() {
+  const city = document.querySelector(".search-input").value;
+  if (city) {
+    fetchWeather(city);
+  }
 }
 
-// Sign Up Form Validation
-function signupUser() {
-  const fullName = document.getElementById("fullName").value;
-  const email = document.getElementById("signupEmail").value;
-  const password = document.getElementById("signupPassword").value;
-  const city = document.getElementById("cities").value;
-  const gender = document.querySelector('input[name="gender"]:checked');
-
-  // Check if all fields are filled
-  if (!fullName.trim()) {
-    alert("Please enter your full name!");
-    return false;
-  }
-
-  if (!email.trim()) {
-    alert("Please enter your email!");
-    return false;
-  }
-
-  // Email validation
-  if (!validateEmail(email)) {
-    alert("Please enter a valid email address!");
-    return false;
-  }
-
-  if (!password.trim()) {
-    alert("Please enter your password!");
-    return false;
-  }
-
-  // Password validation
-  if (!validatePassword(password)) {
-    alert(
-      "Password must be at least 8 characters long and contain:\n- At least 1 uppercase letter\n- At least 1 lowercase letter\n- At least 1 number\n- At least 1 special character (@$!%*?&)"
-    );
-    return false;
-  }
-
-  if (!city) {
-    alert("Please select a city!");
-    return false;
-  }
-
-  if (!gender) {
-    alert("Please select your gender!");
-    return false;
-  }
-
-  alert(
-    `Account created successfully!\nName: ${fullName}\nEmail: ${email}\nCity: ${city}\nGender: ${gender.value}`
-  );
-
-  // After successful signup, show login form
-  showLogin();
-  return false; // Prevent actual form submission for demo
-}
+// ✅ Load Karachi on start
+fetchWeather("Karachi");
