@@ -685,63 +685,90 @@
 // }
 //////////////////////////// Weather APP ///////////////
 
-const fetchWeather = async (city) => {
-  try {
-    const weatherApi = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4a4a359fa2bd230494f20f6999cb8150&units=metric`
-    );
-    const response = await weatherApi.json();
+// const fetchWeather = async (city) => {
+//   try {
+//     const weatherApi = await fetch(
+//       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4a4a359fa2bd230494f20f6999cb8150&units=metric`
+//     );
+//     const response = await weatherApi.json();
 
-    // if wrong city
-    if (response.cod !== 200) {
-      alert("City not found!");
-      return;
-    }
+//     // if wrong city
+//     if (response.cod !== 200) {
+//       alert("City not found!");
+//       return;
+//     }
 
-    const {
-      main: { temp, feels_like, humidity, pressure },
-      weather,
-      wind: { speed },
-      name,
-    } = response;
+//     const {
+//       main: { temp, feels_like, humidity, pressure },
+//       weather,
+//       wind: { speed },
+//       name,
+//     } = response;
 
-    const { description, main: weatherMain } = weather[0];
+//     const { description, main: weatherMain } = weather[0];
 
-    // ✅ Update UI
-    document.querySelector(".location").textContent = name;
-    document.querySelector(".temperature").textContent = `${temp}°C`;
-    document.querySelector(".description").textContent = description;
+//     // ✅ Update UI
+//     document.querySelector(".location").textContent = name;
+//     document.querySelector(".temperature").textContent = `${temp}°C`;
+//     document.querySelector(".description").textContent = description;
 
-    // ✅ Update details (your HTML has no IDs → so we add them)
-    document.getElementById("humidity").textContent = `${humidity}%`;
-    document.getElementById("wind").textContent = `${speed} km/h`;
-    document.getElementById("pressure").textContent = `${pressure} hPa`;
-    document.getElementById("feelslike").textContent = `${feels_like}°C`;
+//     // ✅ Update details (your HTML has no IDs → so we add them)
+//     document.getElementById("humidity").textContent = `${humidity}%`;
+//     document.getElementById("wind").textContent = `${speed} km/h`;
+//     document.getElementById("pressure").textContent = `${pressure} hPa`;
+//     document.getElementById("feelslike").textContent = `${feels_like}°C`;
 
-    // ✅ Weather Icon
-    const iconElement = document.querySelector(".weather-icon");
-    if (weatherMain === "Clouds") {
-      iconElement.textContent = "☁️";
-    } else if (weatherMain === "Rain") {
-      iconElement.textContent = "🌧️";
-    } else if (weatherMain === "Clear") {
-      iconElement.textContent = "☀️";
-    } else {
-      iconElement.textContent = "🌍"; // fallback
-    }
-  } catch (error) {
-    console.error("Error fetching weather:", error);
-    alert("Something went wrong!");
-  }
+//     // ✅ Weather Icon
+//     const iconElement = document.querySelector(".weather-icon");
+//     if (weatherMain === "Clouds") {
+//       iconElement.textContent = "☁️";
+//     } else if (weatherMain === "Rain") {
+//       iconElement.textContent = "🌧️";
+//     } else if (weatherMain === "Clear") {
+//       iconElement.textContent = "☀️";
+//     } else {
+//       iconElement.textContent = "🌍"; // fallback
+//     }
+//   } catch (error) {
+//     console.error("Error fetching weather:", error);
+//     alert("Something went wrong!");
+//   }
+// };
+
+// // ✅ Search button
+// function searchWeather() {
+//   const city = document.querySelector(".search-input").value;
+//   if (city) {
+//     fetchWeather(city);
+//   }
+// }
+
+// // ✅ Load Karachi on start
+// fetchWeather("Karachi");
+///////// shallow copy practice //////////////////////////
+const obj = {
+  name: "Huzaifa ",
+  class: 13,
+  address: {
+    city: "sindh",
+    nic: 43212345432,
+    hobbies: "book reading ",
+  },
 };
-
-// ✅ Search button
+console.log(obj);
+const shallowCopy = {
+  ...obj,
+  age: 20,
+};
+shallowCopy.address.city = "lahore";
+console.log(shallowCopy);
+console.log(obj);
+let A = 5;
+console.log("A" - 1);
+//✅ Search button
 function searchWeather() {
   const city = document.querySelector(".search-input").value;
   if (city) {
     fetchWeather(city);
   }
 }
-
-// ✅ Load Karachi on start
-fetchWeather("Karachi");
