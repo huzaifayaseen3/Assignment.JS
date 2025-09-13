@@ -746,29 +746,92 @@
 // // ✅ Load Karachi on start
 // fetchWeather("Karachi");
 ///////// shallow copy practice //////////////////////////
-const obj = {
-  name: "Huzaifa ",
-  class: 13,
-  address: {
-    city: "sindh",
-    nic: 43212345432,
-    hobbies: "book reading ",
-  },
+// const obj = {
+//   name: "Huzaifa ",
+//   class: 13,
+//   address: {
+//     city: "sindh",
+//     nic: 43212345432,
+//     hobbies: "book reading ",
+//   },
+// };
+// console.log(obj);
+// const shallowCopy = {
+//   ...obj,
+//   age: 20,
+// };
+// shallowCopy.address.city = "lahore";
+// console.log(shallowCopy);
+// console.log(obj);
+// let A = 5;
+// console.log("A" - 1);
+// //✅ Search button
+// function searchWeather() {
+//   const city = document.querySelector(".search-input").value;
+//   if (city) {
+//     fetchWeather(city);
+//   }
+// }
+/////////////////////// currency converter
+// Very small mock rates
+// Mock exchange rates
+// Simple mock rates (from → to)
+// Simple mock rates (from → to)
+// Very simple mock rates (just for demo)
+// Base rates (relative to USD for simplicity)
+const rates = {
+  USD: 1,
+  EUR: 0.85,
+  GBP: 0.73,
+  JPY: 110,
+  AUD: 1.35,
+  CAD: 1.25,
+  CHF: 0.92,
+  CNY: 6.45,
+  INR: 74.5,
+  KRW: 1180,
+  SGD: 1.35,
+  HKD: 7.8,
 };
-console.log(obj);
-const shallowCopy = {
-  ...obj,
-  age: 20,
-};
-shallowCopy.address.city = "lahore";
-console.log(shallowCopy);
-console.log(obj);
-let A = 5;
-console.log("A" - 1);
-//✅ Search button
-function searchWeather() {
-  const city = document.querySelector(".search-input").value;
-  if (city) {
-    fetchWeather(city);
-  }
+
+// Get rate from one currency to another
+function getRate(from, to) {
+  return rates[to] / rates[from];
 }
+
+// Main convert function
+function convert() {
+  const amount = parseFloat(document.getElementById("amount").value) || 0;
+  const from = document.getElementById("fromCurrency").value;
+  const to = document.getElementById("toCurrency").value;
+
+  const rate = getRate(from, to);
+  const converted = amount * rate;
+
+  document.getElementById("fromAmount").textContent = amount + " " + from;
+  document.getElementById("toAmount").textContent =
+    converted.toFixed(2) + " " + to;
+  document.getElementById(
+    "exchangeRate"
+  ).textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
+  document.getElementById("lastUpdated").textContent =
+    "Last updated: " + new Date().toLocaleTimeString();
+}
+
+// Swap currencies
+document.getElementById("swapBtn").addEventListener("click", () => {
+  const from = document.getElementById("fromCurrency");
+  const to = document.getElementById("toCurrency");
+  const temp = from.value;
+  from.value = to.value;
+  to.value = temp;
+  convert();
+});
+
+// Update when typing or selecting
+document.getElementById("amount").addEventListener("input", convert);
+document.getElementById("fromCurrency").addEventListener("change", convert);
+document.getElementById("toCurrency").addEventListener("change", convert);
+
+// First run
+convert();
