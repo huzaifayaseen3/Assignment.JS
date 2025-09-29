@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eastern Wear - Urooj Fashion</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fef3f0 0%, #fdf4f7 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c94b7e 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            color: #1a1a1a;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .back-btn {
+            padding: 10px 24px;
+            background: white;
+            border: 2px solid #ff6b9d;
+            color: #ff6b9d;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #ff6b9d;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-section {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c94b7e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories-section {
+            padding: 40px 0 80px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.2);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c94b7e 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .category-content {
+            padding: 24px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .category-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .category-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .item-count {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .view-btn {
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c94b7e 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <span>UF</span>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Urooj Fashion</h1>
+                        <p>Girls Eastern & Western Wear</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="window.history.back()">← Back to Home</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Eastern Wear Collection</h1>
+            <p class="hero-subtitle">Explore our beautiful collection of traditional eastern clothing for girls</p>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        // Eastern Wear Categories Array of Objects
+        const easternCategories = [
+            {
+                id: 1,
+                title: "Traditional Kurtis",
+                description: "Beautiful hand-embroidered kurtis in vibrant colors and elegant designs perfect for everyday wear and special occasions.",
+                image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500&h=400&fit=crop",
+                itemCount: 45,
+                badge: "Popular"
+            },
+            // ... rest of your categories
+        ];
+
+        // Function to render categories
+        function renderCategories() {
+            const grid = document.getElementById('categoriesGrid');
+
+            easternCategories.forEach(category => {
+                const card = document.createElement('div');
+                card.className = 'category-card';
+                card.innerHTML = `
+        <div class="category-image">
+          <img src="${category.image}" alt="${category.title}">
+          <div class="category-badge">${category.badge}</div>
+        </div>
+        <div class="category-content">
+          <h3 class="category-title">${category.title}</h3>
+          <p class="category-description">${category.description}</p>
+          <div class="category-meta">
+            <span class="item-count">${category.itemCount} items</span>
+            <button class="view-btn" onclick="viewCategory(${category.id})">
+              View Collection →
+            </button>
+          </div>
+        </div>
+      `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Function to handle category view
+        function viewCategory(categoryId) {
+            const category = easternCategories.find(cat => cat.id === categoryId);
+            alert(`Opening ${category.title} collection!\n\nThis would navigate to the detailed product page.`);
+        }
+
+        // Initialize page
+        renderCategories();
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,323 @@
-<!-- Currency converter   Starts -->
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urooj Fashion - Beautiful Eastern & Western Wear for Girls</title>
+  <meta name="description"
+    content="Discover stunning collection of traditional kurtis, modern dresses, and elegant shalwar qameez designed for girls aged 3-14.">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <!-- Logo -->
+        <div class="logo">
+          <div class="logo-icon">
+            <span>UF</span>
+          </div>
+          <div class="logo-text">
+            <h1>Urooj Fashion</h1>
+            <p>Girls Eastern & Western Wear</p>
+          </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="main-nav">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#eastern" class="nav-link">Eastern Wear</a>
+          <a href="#western" class="nav-link">Western Wear</a>
+          <a href="#kurtis" class="nav-link">Kurtis</a>
+          <a href="#shalwar" class="nav-link">Shalwar Qameez</a>
+        </nav>
+
+        <!-- Contact & Signup Buttons -->
+        <div class="nav-actions">
+          <a href="contactUs.html" class="btn btn-outline">Contact Us</a>
+          <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-elements">
+      <div class="floating-element element-1"></div>
+      <div class="floating-element element-2"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="new-collection-badge">
+            <span>✨ New Collection 2025</span>
+          </div>
+
+          <h1 class="hero-title">
+            Beautiful Fashion for
+            <span class="title-accent">Little Princesses</span>
+          </h1>
+
+          <p class="hero-description">
+            Discover our exquisite collection of traditional eastern wear and modern western styles,
+            carefully crafted for girls aged 3-14 years.
+          </p>
+
+          <div class="hero-buttons">
+            <!-- In your HTML -->
+            <button class="btn btn-primary" id="shopEastern" onclick="window.location.href='Eastern.html'">Shop
+              Eastern Wear</button>
+            <button class="btn btn-secondary">Shop Western Wear</button>
+          </div>
+
+          <div class="hero-features">
+            <div class="feature">
+              <div class="feature-icon green">✓</div>
+              <span>Premium Quality</span>
+            </div>
+            <div class="feature">
+              <div class="feature-icon blue">🚚</div>
+              <span>Free Shipping</span>
+            </div>
+            <div class="feature">
+              <div class="feature-icon purple">👗</div>
+              <span>Perfect Fit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1677128342273-a603875846bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraWRzJTIwZ2lybHMlMjBmYXNoaW9uJTIwZWFzdGVybiUyMHdlYXIlMjBrdXJ0aSUyMGRyZXNzfGVufDF8fHx8MTc1NzkzNTg1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            alt="Beautiful Kids Fashion Collection" class="hero-img">
+          <div class="image-overlay"></div>
+          <div class="floating-decoration decoration-1"></div>
+          <div class="floating-decoration decoration-2"></div>
+          <div class="sparkle sparkle-1"></div>
+          <div class="sparkle sparkle-2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2>Shop by Category</h2>
+        <p>Explore our beautiful collection of eastern and western wear</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card eastern" data-category="eastern">
+          <div class="category-content">
+            <div class="category-text">
+              <h3>Eastern Wear</h3>
+              <p>Traditional kurtis, shalwar qameez, and ethnic wear</p>
+              <button class="btn btn-category">Shop Now →</button>
+            </div>
+            <div class="category-image">
+              <img
+                src="https://images.unsplash.com/photo-1677128342273-a603875846bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMGdpcmxzJTIwdHJhZGl0aW9uYWwlMjBkcmVzcyUyMGt1cnRhfGVufDF8fHx8MTc1NzkzNTQyNXww&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Eastern Wear">
+              <div class="floating-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category-card western" data-category="western">
+          <div class="category-content">
+            <div class="category-text">
+              <h3>Western Wear</h3>
+              <p>Modern dresses, tops, and casual wear</p>
+              <button class="btn btn-category">Shop Now →</button>
+            </div>
+            <div class="category-image">
+              <img
+                src="https://images.unsplash.com/photo-1752921050429-afd662005e85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnaXJscyUyMHdlc3Rlcm4lMjBjYXN1YWwlMjBkcmVzc3xlbnwxfHx8fDE3NTc5MzU0MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Western Wear">
+              <div class="floating-dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- "Shop by Age" section removed as requested -->
+
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Products</h2>
+        <p>Handpicked favorites loved by kids and trusted by parents</p>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will be dynamically loaded here -->
+      </div>
+
+      <div class="view-all">
+        <button class="btn btn-outline">View All Products ✨</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- Newsletter Section -->
+    <div class="newsletter">
+      <div class="container">
+        <div class="newsletter-content">
+          <h3>Stay Updated with Latest Fashion ✨</h3>
+          <p>Subscribe to get special offers, free giveaways, and new arrivals for your little fashionista</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" class="newsletter-input">
+            <button class="btn btn-newsletter">Subscribe 📧</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Footer -->
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <div class="logo-icon">
+                <span>UF</span>
+              </div>
+              <div>
+                <h4>Urooj Fashion</h4>
+                <p>Girls Eastern & Western Wear</p>
+              </div>
+            </div>
+            <p>Creating beautiful, comfortable, and stylish clothing for girls aged 3-14. Quality fabrics, perfect fits,
+              and designs kids love.</p>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.405.042-3.441.219-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.562-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.888-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.357-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-12.013C24.007 5.367 18.641.001 12.017.001z" />
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#eastern">Eastern Wear</a></li>
+              <li><a href="#western">Western Wear</a></li>
+              <li><a href="#">Size Guide</a></li>
+              <li><a href="#">Care Instructions</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Customer Care</h4>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Shipping Info</a></li>
+              <li><a href="#">Returns & Exchanges</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Track Order</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Get in Touch</h4>
+            <div class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <div>
+                <p>123 Fashion Street</p>
+                <p>Karachi, Dundas Street</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <p>hello@uroojfashion.com</p>
+            </div>
+
+            <div class="store-hours">
+              <h5>Store Hours</h5>
+              <p>Mon - Fri: 9:00 AM - 8:00 PM</p>
+              <p>Saturday: 10:00 AM - 6:00 PM</p>
+              <p>Sunday: 12:00 PM - 5:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content">
+          <p>© 2025 Urooj Fashion. All rights reserved. Made with 💜 for little fashionistas</p>
+          <div class="bottom-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="app.js"></script>
+</body>
+
+</html> -->
+<!-- Currency converter   Starts -->
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -82,7 +400,7 @@
 
 </body>
 
-</html>
+</html> -->
 <!-- Currency converter Ends -->
 <!-- Weather App  Starts -->
 <!-- 

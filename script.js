@@ -779,59 +779,255 @@
 // Simple mock rates (from → to)
 // Very simple mock rates (just for demo)
 // Base rates (relative to USD for simplicity)
-const rates = {
-  USD: 1,
-  EUR: 0.85,
-  GBP: 0.73,
-  JPY: 110,
-  AUD: 1.35,
-  CAD: 1.25,
-  CHF: 0.92,
-  CNY: 6.45,
-  INR: 74.5,
-  KRW: 1180,
-  SGD: 1.35,
-  HKD: 7.8,
-};
+// const rates = {
+//   USD: 1,
+//   EUR: 0.85,
+//   GBP: 0.73,
+//   JPY: 110,
+//   AUD: 1.35,
+//   CAD: 1.25,
+//   CHF: 0.92,
+//   CNY: 6.45,
+//   INR: 74.5,
+//   KRW: 1180,
+//   SGD: 1.35,
+//   HKD: 7.8,
+// };
 
-// Get rate from one currency to another
-function getRate(from, to) {
-  return rates[to] / rates[from];
+// // Get rate from one currency to another
+// function getRate(from, to) {
+//   return rates[to] / rates[from];
+// }
+
+// // Main convert function
+// function convert() {
+//   const amount = parseFloat(document.getElementById("amount").value) || 0;
+//   const from = document.getElementById("fromCurrency").value;
+//   const to = document.getElementById("toCurrency").value;
+
+//   const rate = getRate(from, to);
+//   const converted = amount * rate;
+
+//   document.getElementById("fromAmount").textContent = amount + " " + from;
+//   document.getElementById("toAmount").textContent =
+//     converted.toFixed(2) + " " + to;
+//   document.getElementById(
+//     "exchangeRate"
+//   ).textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
+//   document.getElementById("lastUpdated").textContent =
+//     "Last updated: " + new Date().toLocaleTimeString();
+// }
+
+// // Swap currencies
+// document.getElementById("swapBtn").addEventListener("click", () => {
+//   const from = document.getElementById("fromCurrency");
+//   const to = document.getElementById("toCurrency");
+//   const temp = from.value;
+//   from.value = to.value;
+//   to.value = temp;
+//   convert();
+// });
+
+// // Update when typing or selecting
+// document.getElementById("amount").addEventListener("input", convert);
+// document.getElementById("fromCurrency").addEventListener("change", convert);
+// document.getElementById("toCurrency").addEventListener("change", convert);
+
+// // First run
+// convert();
+// Show Sign Up form and hide Login form
+function showSignUp() {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("signupForm").style.display = "flex";
 }
 
-// Main convert function
-function convert() {
-  const amount = parseFloat(document.getElementById("amount").value) || 0;
-  const from = document.getElementById("fromCurrency").value;
-  const to = document.getElementById("toCurrency").value;
-
-  const rate = getRate(from, to);
-  const converted = amount * rate;
-
-  document.getElementById("fromAmount").textContent = amount + " " + from;
-  document.getElementById("toAmount").textContent =
-    converted.toFixed(2) + " " + to;
-  document.getElementById(
-    "exchangeRate"
-  ).textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
-  document.getElementById("lastUpdated").textContent =
-    "Last updated: " + new Date().toLocaleTimeString();
+// Show Login form and hide Sign Up form
+function showLogin() {
+  document.getElementById("signupForm").style.display = "none";
+  document.getElementById("loginForm").style.display = "flex";
 }
 
-// Swap currencies
-document.getElementById("swapBtn").addEventListener("click", () => {
-  const from = document.getElementById("fromCurrency");
-  const to = document.getElementById("toCurrency");
-  const temp = from.value;
-  from.value = to.value;
-  to.value = temp;
-  convert();
+// Email validation regex
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+// Password validation regex:
+// Minimum 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special char
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+// Validate email by regex
+function validateEmail(email) {
+  return emailRegex.test(email);
+}
+
+// Validate password by regex
+function validatePassword(password) {
+  return passwordRegex.test(password);
+}
+
+// Handle Login form submit
+function loginUser() {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email.");
+    return false;
+  }
+
+  if (!validatePassword(password)) {
+    alert(
+      "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character."
+    );
+    return false;
+  }
+
+  alert(`Login successful! Welcome back, ${email}`);
+  return false; // prevent form submission for demo
+}
+
+// Handle Sign Up form submit
+function signupUser() {
+  const fullName = document.getElementById("fullName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim();
+  const password = document.getElementById("signupPassword").value.trim();
+  const city = document.getElementById("cities").value;
+  const gender = document.querySelector('input[name="gender"]:checked');
+
+  if (
+    !fullName ||
+    !validateEmail(email) ||
+    !validatePassword(password) ||
+    !city ||
+    !gender
+  ) {
+    alert("Please fill out all fields correctly.");
+    return false;
+  }
+
+  alert(
+    `Account created for ${fullName} (${email}), City: ${city}, Gender: ${gender.value}`
+  );
+
+  showLogin(); // switch back to login form
+  return false; // prevent form submission for demo
+}
+// sweet alert contact us
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // prevent actual form submission (page reload)
+
+  Swal.fire({
+    title: "Response Submitted ",
+    text: "Your message has been sent!",
+    icon: "success",
+    confirmButtonText: "OK",
+  });
+
+  // Optionally reset form
+  form.reset();
 });
+// catogories
+// Eastern Wear Categories Array of Objects
+const easternCategories = [
+  {
+    id: 1,
+    title: "Traditional Kurtis",
+    description:
+      "Beautiful hand-embroidered kurtis in vibrant colors and elegant designs perfect for everyday wear and special occasions.",
+    image:
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500&h=400&fit=crop",
+    itemCount: 45,
+    badge: "Popular",
+  },
+  {
+    id: 2,
+    title: "Shalwar Qameez",
+    description:
+      "Classic three-piece sets with intricate embroidery and comfortable fabric, ideal for festivals and family gatherings.",
+    image:
+      "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=500&h=400&fit=crop",
+    itemCount: 32,
+    badge: "New Arrival",
+  },
+  {
+    id: 3,
+    title: "Party Wear Lehengas",
+    description:
+      "Stunning lehengas with delicate work and flowing dupattas, perfect for weddings and special celebrations.",
+    image:
+      "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=500&h=400&fit=crop",
+    itemCount: 28,
+    badge: "Premium",
+  },
+  {
+    id: 4,
+    title: "Angrakha Style",
+    description:
+      "Contemporary angrakha designs blending traditional aesthetics with modern comfort for stylish young girls.",
+    image:
+      "https://images.unsplash.com/photo-1612722432474-b971cdcea546?w=500&h=400&fit=crop",
+    itemCount: 20,
+    badge: "Trending",
+  },
+  {
+    id: 5,
+    title: "Anarkali Suits",
+    description:
+      "Flowing anarkali dresses with beautiful flares and embellishments, perfect for festive occasions.",
+    image:
+      "https://images.unsplash.com/photo-1583391733981-e8185aa0d18c?w=500&h=400&fit=crop",
+    itemCount: 35,
+    badge: "Bestseller",
+  },
+  {
+    id: 6,
+    title: "Palazzo Sets",
+    description:
+      "Trendy kurti and palazzo combinations offering comfort and style for casual and semi-formal events.",
+    image:
+      "https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=500&h=400&fit=crop",
+    itemCount: 40,
+    badge: "Comfortable",
+  },
+];
 
-// Update when typing or selecting
-document.getElementById("amount").addEventListener("input", convert);
-document.getElementById("fromCurrency").addEventListener("change", convert);
-document.getElementById("toCurrency").addEventListener("change", convert);
+// Function to render categories
+function renderCategories() {
+  const grid = document.getElementById("categoriesGrid");
 
-// First run
-convert();
+  easternCategories.forEach((category) => {
+    const card = document.createElement("div");
+    card.className = "category-card";
+    card.innerHTML = `
+          <div class="category-image">
+            <img src="${category.image}" alt="${category.title}">
+            <div class="category-badge">${category.badge}</div>
+          </div>
+          <div class="category-content">
+            <h3 class="category-title">${category.title}</h3>
+            <p class="category-description">${category.description}</p>
+            <div class="category-meta">
+              <span class="item-count">${category.itemCount} items</span>
+              <button class="view-btn" onclick="viewCategory(${category.id})">
+                View Collection →
+              </button>
+            </div>
+          </div>
+        `;
+    grid.appendChild(card);
+  });
+}
+
+// Function to handle category view
+function viewCategory(categoryId) {
+  const category = easternCategories.find((cat) => cat.id === categoryId);
+  alert(
+    `Opening ${category.title} collection!\n\nThis would navigate to the detailed product page.`
+  );
+  // In a real application, you would navigate to a products page:
+  // window.location.href = `products.html?category=${categoryId}`;
+}
+
+// Initialize page
+renderCategories();
